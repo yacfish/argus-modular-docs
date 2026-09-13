@@ -183,7 +183,7 @@ docs/
 
 | Component | License |
 |-----------|---------|
-| argus-core | See argus-core repo |
+| argus-core | Private |
 | Dear ImGui | MIT |
 | GLFW | zlib/libpng-style |
-| argus-modular | Your choice |
+| argus-modular | Private |
