@@ -18,7 +18,7 @@
 
 CMake pins core via `cmake/resolve_argus_core.cmake` (`ARGUS_CORE_REF`, currently `f9ac20a…` — external shader pack discovery (#62)). UI links `argus_core` + `argus_builtin_nodes`.
 
-**Pin maintenance:** After every argus-core change this app depends on, bump `ARGUS_CORE_REF` in the matching ArgusModular PR (agents: do this automatically — see [AGENTS.md](../AGENTS.md)). Script: `scripts/bump_argus_core_ref.sh` — post-merge use `-ud -m "note" -cp`; local pre-merge testing use `-l`.
+**Pin maintenance:** After every argus-core change this app depends on, bump `ARGUS_CORE_REF` in the matching ArgusModular PR (agents: do this automatically — see AGENTS.md (only available in the main repo)). Script: `scripts/bump_argus_core_ref.sh` — post-merge use `-ud -m "note" -cp`; local pre-merge testing use `-l`.
 
 ---
 
@@ -27,7 +27,7 @@ CMake pins core via `cmake/resolve_argus_core.cmake` (`ARGUS_CORE_REF`, currentl
 ```
 GLFW window
   └── ImGui (desktop OpenGL) — full-screen root "Argus"
-        ├── Menu bar: Argus · File · Mode · [EDIT] — Preferences **(done)** [plan-app-preferences.md](plan-app-preferences.md)
+        ├── Menu bar: Argus · File · Mode · [EDIT] — Preferences **(done)** [plan-app-preferences.md](dev-docs/plan-app-preferences.md)
         ├── Graph canvas (custom draw list)
         └── Side column (300px): tabbed panels
 ```
@@ -46,10 +46,10 @@ GLFW window
 **(done)** Current shell (UX-D):
 
 - **Canvas left** — graph always visible when a document is open.
-- **Side column right** — tabs: **Monitor**, **Node**, **Presets** (`SidePanelTab` in `edit_mode_panel.hpp`). Debug moves to **Preferences** — [plan-app-preferences.md](plan-app-preferences.md).
+- **Side column right** — tabs: **Monitor**, **Node**, **Presets** (`SidePanelTab` in `edit_mode_panel.hpp`). Debug moves to **Preferences** — plan-app-preferences.md (only available in the main repo).
 - **`[EDIT]`** — menu-bar toggle; red = enable edit, gray = disable edit (operate).
 
-Executor **always running** while a document is open; `[EDIT]` is layout + interaction gating only — **(done)**. Remaining LT polish: `topology_changed` signal, fatal **Restart graph** — [plan-live-topology.md](plan-live-topology.md).
+Executor **always running** while a document is open; `[EDIT]` is layout + interaction gating only — **(done)**. Remaining LT polish: `topology_changed` signal, fatal **Restart graph** — plan-live-topology.md (only available in the main repo).
 
 **(deferred)** Dockable ImGui panels, §2.0 shell polish — [roadmap.md](roadmap.md) untracked.
 
@@ -76,7 +76,7 @@ There is **no separate inspector panel**. The **Node** side tab (`NodePanel` in 
 
 | Component | Role | Tag |
 |-----------|------|-----|
-| `GraphCanvas` + split modules | Nodes, wires, pan/zoom, selection, clipboard, undo — see [plan-graph-canvas-split.md](plan-graph-canvas-split.md) | **(done)** |
+| `GraphCanvas` + split modules | Nodes, wires, pan/zoom, selection, clipboard, undo — see plan-graph-canvas-split.md (only available in the main repo) | **(done)** |
 | `canvas_tabs` + `graph_canvas_tabs` | Subgraph tab bar, per-tab editor stash, **↓** / **×** chrome | **(done)** B2 |
 | `boundary_authoring` | RAM embedded subgraphs; embedded script fork; save materialize; AssetRef path params | **(done)** B1–B4, AR1 |
 | `asset_ref` / `asset_resolver` | Unified `{scope, path}`; legacy dual-read; preferences `search_paths` | **(done)** AR1 |
@@ -150,8 +150,8 @@ flowchart LR
 | Empty document startup | **(done)** |
 | Graph JSON + `ui` blocks in editor snapshot | **(done)** |
 | Presets tab (load/save named presets in bundle) | **(done)** |
-| Subgraph `graphs/*.json` + CodeBox `scripts/*.lua` (materialized on save); Inlet/Outlet inner authoring; parent **↑** exposure | **(done)** B1–B5 — [plan-boundaries.md](plan-boundaries.md) |
-| App preferences (`preferences.json`, user config dir) | **(done)** [plan-app-preferences.md](plan-app-preferences.md) |
+| Subgraph `graphs/*.json` + CodeBox `scripts/*.lua` (materialized on save); Inlet/Outlet inner authoring; parent **↑** exposure | **(done)** B1–B5 — plan-boundaries.md (only available in the main repo) |
+| App preferences (`preferences.json`, user config dir) | **(done)** plan-app-preferences.md (only available in the main repo) |
 | Recent bundles, templates, reload from disk | **(done)** File menu |
 | Auto-save `.autosave/` | **(deferred)** |
 | Timeline `timelines/` | **(deferred)** roadmap #15 |
@@ -167,9 +167,9 @@ flowchart LR
 | **One** UI GPU path: GL (chosen on dev host) | **(done)** GPU pipeline GP1 |
 | `gl_viewer` GPU previews | **(done)** GPU pipeline GP2 |
 | Built-in GLSL shader lib + `glsl_*` palette (`GlslShader`) | **(done)** GPU pipeline GP3 + GP3.2 (PR #49) |
-| External folder shader packs (runtime → palette) | **(done)** GPU pipeline GP4 runtime — [argus-effect-format.md](argus-effect-format.md) |
-| GP5 local CI (`scripts/ci-local.sh`) | **(done)** — [ci-local.md](ci-local.md) |
-| GP4 follow-ups (color params, bundle zip) | **(soon)** [plan-gpu-pipeline.md](plan-gpu-pipeline.md) · [plan-jxs-import.md](plan-jxs-import.md) J1–J4.1 |
+| External folder shader packs (runtime → palette) | **(done)** GPU pipeline GP4 runtime — argus-effect-format.md (only available in the main repo) |
+| GP5 local CI (`scripts/ci-local.sh`) | **(done)** — ci-local.md (only available in the main repo) |
+| GP4 follow-ups (color params, bundle zip) | **(soon)** plan-gpu-pipeline.md (only available in the main repo) · plan-jxs-import.md (only available in the main repo) J1–J4.1 |
 | GitHub Actions CI | **(deferred)** when minutes available |
 | Vulkan / Metal primary path | **(deferred)** unless F1 picks them |
 | `GlesComputeModule` / ES 3.1 compute in UI | **(deferred)** Linux EGL |
@@ -180,8 +180,8 @@ flowchart LR
 
 | Node | Bundle file param | UI workflow | Tag |
 |------|-------------------|-------------|-----|
-| `SubgraphNode` | `subgraph` AssetRef (`bundle` embedded / `external` disk); legacy `subgraph_file` / `bundle_ref` on load | Canvas tabs; title-bar **↓**; AssetRef widget; parent **↑** exposure | **(done)** B1–B5, AR1 — [plan-boundaries.md](plan-boundaries.md) · [plan-asset-ref.md](plan-asset-ref.md) |
-| `CodeBox` | `script` AssetRef (`bundle` embedded / `external` disk); legacy `script` / `script_ref` on load | Shared creation panel; script `inlets`/`outlets`/`ui`; external editor; inner previews + buttons — [plan-codebox-ux.md](plan-codebox-ux.md) | **(done)** B4, AR1 |
+| `SubgraphNode` | `subgraph` AssetRef (`bundle` embedded / `external` disk); legacy `subgraph_file` / `bundle_ref` on load | Canvas tabs; title-bar **↓**; AssetRef widget; parent **↑** exposure | **(done)** B1–B5, AR1 — plan-boundaries.md (only available in the main repo) · plan-asset-ref.md (only available in the main repo) |
+| `CodeBox` | `script` AssetRef (`bundle` embedded / `external` disk); legacy `script` / `script_ref` on load | Shared creation panel; script `inlets`/`outlets`/`ui`; external editor; inner previews + buttons — plan-codebox-ux.md (only available in the main repo) | **(done)** B4, AR1 |
 
 ---
 
@@ -201,8 +201,8 @@ All types come from `NodeFactoryRegistry::node_catalog_json()`. Floating picker 
 
 | Tier | Examples | Tag |
 |------|----------|-----|
-| **P0** CPU vision + `SubgraphNode` + `CodeBox` | loader, movie, camera, processor, passthrough | **(done)** B1–B5 — [plan-boundaries.md](plan-boundaries.md) |
-| **P1** GPU | `CpuToGlesUpload`, `GlesWindowOutput`, `GlesShaderModule` *(dev)*, **`GlslShader` + `glsl_*` lib** *(GP3)* | **(done)** [plan-gpu-pipeline.md](plan-gpu-pipeline.md) |
+| **P0** CPU vision + `SubgraphNode` + `CodeBox` | loader, movie, camera, processor, passthrough | **(done)** B1–B5 — plan-boundaries.md (only available in the main repo) |
+| **P1** GPU | `CpuToGlesUpload`, `GlesWindowOutput`, `GlesShaderModule` *(dev)*, **`GlslShader` + `glsl_*` lib** *(GP3)* | **(done)** plan-gpu-pipeline.md (only available in the main repo) |
 | **P2** Analysis / I/O | `BlobDetector`, `Sketch2D`, recorder, … | **(deferred)** workflows |
 | **P3** | Vulkan nodes, `GlesComputeModule`, `Inlet`/`Outlet` (subgraph only) | **(deferred)** / build-gated |
 
@@ -214,10 +214,10 @@ All types come from `NodeFactoryRegistry::node_catalog_json()`. Floating picker 
 |--------|---------|-----|
 | Clipboard `argus-subgraph-v1` | `graph_clipboard.cpp` | **(done)** |
 | Undo/redo (canvas topology) | `editor_undo_stack.cpp` | **(done)** |
-| Bypass visibility rules | `control_visibility.cpp`, [plan-bypass-eligibility.md](plan-bypass-eligibility.md) | **(done)** |
+| Bypass visibility rules | `control_visibility.cpp`, plan-bypass-eligibility.md (only available in the main repo) | **(done)** |
 | Debug prefs (Preferences → Debug) + FPS logging | `editor_log.cpp`, `preferences_panel.cpp` | **(done)** |
 | Media-graph perf (Release build, palette cache, preview throttle, tick profiler) | `node_palette.*`, `graph_session.*`, README, AGENTS.md; core `ARGUS_PROFILE_TICK` | **(done)** |
-| App CI smoke | `scripts/ci-local.sh` | **(done)** · [ci-local.md](ci-local.md) |
+| App CI smoke | `scripts/ci-local.sh` | **(done)** · ci-local.md (only available in the main repo) |
 
 ---
 
@@ -227,23 +227,23 @@ All types come from `NodeFactoryRegistry::node_catalog_json()`. Floating picker 
 |-----|---------|
 | [roadmap.md](roadmap.md) | **Single planning doc** — tracked #8–15, deferred, untracked backlog |
 | [architecture.md](architecture.md) | This file — system map + tags |
-| [plan-boundaries.md](plan-boundaries.md) | SubgraphNode + CodeBox feature track (B1–B5) |
-| [plan-asset-ref.md](plan-asset-ref.md) | Unified `AssetRef` path params (AR1 — **shipped** on `main`) |
-| [plan-codebox-ux.md](plan-codebox-ux.md) | CodeBox authoring UX (B4) |
-| [codebox-lua-api.md](codebox-lua-api.md) | CodeBox Lua API (first iteration) |
-| [plan-app-preferences.md](plan-app-preferences.md) | Argus menu, prefs modal, File extensions |
-| [plan-graph-canvas-split.md](plan-graph-canvas-split.md) | Graph canvas module split (shipped) |
-| [plan-gpu-pipeline.md](plan-gpu-pipeline.md) | GPU path, `gl_viewer`, GLSL lib, external packs, CI |
-| [plan-parameter-types.md](plan-parameter-types.md) | `int` / `vec2` / `vec3` / `vec4` parameters — **(done)** |
-| [plan-parameter-widgets.md](plan-parameter-widgets.md) | Widget registry; CodeBox `ui` types (`vec2`, `enum`, `int`/`float`, colors); preview viewers — **(deferred)** |
-| [plan-color-parameters.md](plan-color-parameters.md) | `color_rgb` / `color_rgba` + picker — **(soon)** |
-| [plan-jxs-import.md](plan-jxs-import.md) | JXS → GP4 pack import script — **(done)** core #69 |
-| [argus-effect-format.md](argus-effect-format.md) | External folder shader pack format (GP4) |
-| [ci-local.md](ci-local.md) | Local smoke CI (`scripts/ci-local.sh`) |
-| [plan-ui-ux.md](plan-ui-ux.md) | **Closed** — superseded June 2026 |
+| plan-boundaries.md (only available in the main repo) | SubgraphNode + CodeBox feature track (B1–B5) |
+| plan-asset-ref.md (only available in the main repo) | Unified `AssetRef` path params (AR1 — **shipped** on `main`) |
+| plan-codebox-ux.md (only available in the main repo) | CodeBox authoring UX (B4) |
+| codebox-lua-api.md (only available in the main repo) | CodeBox Lua API (first iteration) |
+| plan-app-preferences.md (only available in the main repo) | Argus menu, prefs modal, File extensions |
+| plan-graph-canvas-split.md (only available in the main repo) | Graph canvas module split (shipped) |
+| plan-gpu-pipeline.md (only available in the main repo) | GPU path, `gl_viewer`, GLSL lib, external packs, CI |
+| plan-parameter-types.md (only available in the main repo) | `int` / `vec2` / `vec3` / `vec4` parameters — **(done)** |
+| plan-parameter-widgets.md (only available in the main repo) | Widget registry; CodeBox `ui` types (`vec2`, `enum`, `int`/`float`, colors); preview viewers — **(deferred)** |
+| plan-color-parameters.md (only available in the main repo) | `color_rgb` / `color_rgba` + picker — **(soon)** |
+| plan-jxs-import.md (only available in the main repo) | JXS → GP4 pack import script — **(done)** core #69 |
+| argus-effect-format.md (only available in the main repo) | External folder shader pack format (GP4) |
+| ci-local.md (only available in the main repo) | Local smoke CI (`scripts/ci-local.sh`) |
+| plan-ui-ux.md (only available in the main repo) | **Closed** — superseded June 2026 |
 | `next_on_UX-*.md` | Historical UX-A–D acceptance detail (editor polish) |
-| [plan-live-topology.md](plan-live-topology.md) | LT-UI consumption of core patch API |
-| [plan_initial.md](plan_initial.md) | Bootstrap U1–U5 history |
+| plan-live-topology.md (only available in the main repo) | LT-UI consumption of core patch API |
+| plan_initial.md (only available in the main repo) | Bootstrap U1–U5 history |
 
 ---
 

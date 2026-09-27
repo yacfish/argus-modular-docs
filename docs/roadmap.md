@@ -4,12 +4,12 @@
 **Purpose**: Single planning doc for the UI repo. System map: [architecture.md](architecture.md).
 
 **Engine:** [argus-core](https://github.com/yacfish/argus-core) — pin `23559df…` (`ARGUS_CORE_REF`, J4.3 spiderweb/crosstile)  
-**Bootstrap history:** [plan_initial.md](plan_initial.md)  
-**Feature tracks:** [plan-boundaries.md](plan-boundaries.md) · [plan-asset-ref.md](plan-asset-ref.md) · [plan-gpu-pipeline.md](plan-gpu-pipeline.md) · [plan-parameter-types.md](plan-parameter-types.md) · [plan-parameter-widgets.md](plan-parameter-widgets.md) · [plan-color-parameters.md](plan-color-parameters.md) · [plan-jxs-import.md](plan-jxs-import.md) · [plan-app-preferences.md](plan-app-preferences.md) · [plan-graph-canvas-split.md](plan-graph-canvas-split.md)  
+**Bootstrap history:** plan_initial.md (only available in the main repo)  
+**Feature tracks:** plan-boundaries.md (only available in the main repo) · plan-asset-ref.md (only available in the main repo) · plan-gpu-pipeline.md (only available in the main repo) · plan-parameter-types.md (only available in the main repo) · plan-parameter-widgets.md (only available in the main repo) · plan-color-parameters.md (only available in the main repo) · plan-jxs-import.md (only available in the main repo) · plan-app-preferences.md (only available in the main repo) · plan-graph-canvas-split.md (only available in the main repo)  
 **UX polish history:** `next_on_UX-*.md` (UX-A–D, merged)  
-**Live topology:** [plan-live-topology.md](plan-live-topology.md) — core shipped; UI polish remains
+**Live topology:** plan-live-topology.md (only available in the main repo) — core shipped; UI polish remains
 
-~~[plan-ui-ux.md](plan-ui-ux.md)~~ — **closed**; merged here + architecture.
+~~plan-ui-ux.md (only available in the main repo)~~ — **closed**; merged here + architecture.
 
 ---
 
@@ -19,7 +19,7 @@
 |-----------|-------|--------|-----|
 | Executor while document open | Always-on; no manual transport UI | Same; `[EDIT]` is layout-only | **(done)** |
 | Topology edits (interactive) | Live `add_node` / connect / hot-swap | Same | **(done)** |
-| LT polish | — | `topology_changed`, fatal Restart graph | **(soon)** [plan-live-topology.md](plan-live-topology.md) |
+| LT polish | — | `topology_changed`, fatal Restart graph | **(soon)** plan-live-topology.md (only available in the main repo) |
 | Parameter tweaks | Live `set_parameter` | Same | **(done)** |
 | One document | Single bundle | Same | **(done)** |
 
@@ -27,12 +27,12 @@
 
 ## Layout (shipped)
 
-- **Canvas left** — graph editor (`GraphCanvas` + split modules per [plan-graph-canvas-split.md](plan-graph-canvas-split.md)).
+- **Canvas left** — graph editor (`GraphCanvas` + split modules per plan-graph-canvas-split.md (only available in the main repo)).
 - **Side column** — **Monitor** · **Node** (inspector) · **Presets** (no Debug tab — Debug in **Preferences → Debug**).
 - **Node tab = inspector** — all params, visibility, preview routing, parent **↑** exposure toggles (Boundaries).
 - **Add nodes** — floating picker (`⌘N`, double-click empty canvas, double-click name to replace).
 - **Menu `[EDIT]`** — enable/disable edit (UX-D).
-- **Argus / File menus** — About, Preferences, recent bundles, templates, reload — [plan-app-preferences.md](plan-app-preferences.md).
+- **Argus / File menus** — About, Preferences, recent bundles, templates, reload — plan-app-preferences.md (only available in the main repo).
 
 **(deferred)** Docking, status bar — untracked § below.
 
@@ -48,8 +48,8 @@
 
 | Tier | Scope |
 |------|--------|
-| **P0** | CPU vision, `SubgraphNode`, `CodeBox` — CPU loops **(done)**; Boundaries B1–B5 **(done)** [plan-boundaries.md](plan-boundaries.md) |
-| **P1** | GLES upload/shader/window — catalog **(done)**; **`glsl_*` palette + GP3/GP3.2 + external packs (GP4 runtime)** **(done)** [plan-gpu-pipeline.md](plan-gpu-pipeline.md) |
+| **P0** | CPU vision, `SubgraphNode`, `CodeBox` — CPU loops **(done)**; Boundaries B1–B5 **(done)** plan-boundaries.md (only available in the main repo) |
+| **P1** | GLES upload/shader/window — catalog **(done)**; **`glsl_*` palette + GP3/GP3.2 + external packs (GP4 runtime)** **(done)** plan-gpu-pipeline.md (only available in the main repo) |
 | **P2** | BlobDetector, Sketch2D, recorder, … — **(deferred)** |
 | **P3** | Vulkan, compute — **(deferred)** / build-gated; Inlet/Outlet subgraph-only |
 
@@ -59,24 +59,24 @@
 
 | Phase | Summary |
 |-------|---------|
-| U1–U5 | Bootstrap — [plan_initial.md](plan_initial.md) |
+| U1–U5 | Bootstrap — plan_initial.md (only available in the main repo) |
 | U6 partial | Selection, wiring, empty doc |
 | **UX-A–D** | Shell, canvas UX, clipboard, panel polish — `next_on_UX-*.md` |
-| **GC-1–GC-4** | Graph canvas split — [plan-graph-canvas-split.md](plan-graph-canvas-split.md) |
-| **PREF-1–4** | Argus menu, File extensions, Preferences modal, UX remap — [plan-app-preferences.md](plan-app-preferences.md) |
+| **GC-1–GC-4** | Graph canvas split — plan-graph-canvas-split.md (only available in the main repo) |
+| **PREF-1–4** | Argus menu, File extensions, Preferences modal, UX remap — plan-app-preferences.md (only available in the main repo) |
 | **Docs** | [keyboard-shortcuts.md](keyboard-shortcuts.md), [architecture.md](architecture.md) |
-| **B1** (branch) | Subgraph creation panel, `boundary_authoring`, RAM embedded params — [plan-boundaries.md](plan-boundaries.md) |
-| **B2** | Canvas tab bar, per-tab isolation, drill/undo/save glue — [plan-boundaries.md](plan-boundaries.md) |
-| **B3** | Inlet/Outlet inner authoring, parent port relay, multi-tab save — [plan-boundaries.md](plan-boundaries.md) |
-| **B4** | CodeBox script authoring — creation panel, port inference, `ui` previews/buttons, rebind, GC — [plan-boundaries.md](plan-boundaries.md) · [plan-codebox-ux.md](plan-codebox-ux.md) |
-| **AR1** | AssetRef unified `bundle` / `external` path params; dual-format migration; asset resolver; debug preview perf — [plan-asset-ref.md](plan-asset-ref.md) · merged [#41](https://github.com/yacfish/argus-modular/pull/41) |
-| **B5** | Parent exposure — `visible_in_parent`, **↑** affordance, parent `SubgraphNode` surfacing — [plan-boundaries.md](plan-boundaries.md) · `c6453e1…` |
-| **GP2** | `gl_viewer` GPU previews — merged PR #44 — [plan-gpu-pipeline.md](plan-gpu-pipeline.md) |
-| **GP3** | GLSL effect runner + `glsl_*` palette (`GlslShader`) — [plan-gpu-pipeline.md](plan-gpu-pipeline.md) · PR #49 |
-| **GP3.2** | Tier 2 GLSL effects (`hue_shift`, `threshold`, `vignette`, `sharpen`, `color_tint`) — core #59 — [plan-gpu-pipeline.md](plan-gpu-pipeline.md) |
-| **GP4** | External folder shader packs — runtime load, exe + preferences search paths, palette expand — [argus-effect-format.md](argus-effect-format.md) · modular #50, core #61 + #62 |
-| **JXS** | Max JXS → GP4 import — **150/150** runtime-verified, **paused** (good enough) — [plan-jxs-import.md](plan-jxs-import.md) |
-| **GP5** | Local CI — `scripts/ci-local.sh` (modular smokes + core GLSL tests) — [ci-local.md](ci-local.md) · modular #50, core #60 |
+| **B1** (branch) | Subgraph creation panel, `boundary_authoring`, RAM embedded params — plan-boundaries.md (only available in the main repo) |
+| **B2** | Canvas tab bar, per-tab isolation, drill/undo/save glue — plan-boundaries.md (only available in the main repo) |
+| **B3** | Inlet/Outlet inner authoring, parent port relay, multi-tab save — plan-boundaries.md (only available in the main repo) |
+| **B4** | CodeBox script authoring — creation panel, port inference, `ui` previews/buttons, rebind, GC — plan-boundaries.md (only available in the main repo) · plan-codebox-ux.md (only available in the main repo) |
+| **AR1** | AssetRef unified `bundle` / `external` path params; dual-format migration; asset resolver; debug preview perf — plan-asset-ref.md (only available in the main repo) · merged [#41](https://github.com/yacfish/argus-modular/pull/41) |
+| **B5** | Parent exposure — `visible_in_parent`, **↑** affordance, parent `SubgraphNode` surfacing — plan-boundaries.md (only available in the main repo) · `c6453e1…` |
+| **GP2** | `gl_viewer` GPU previews — merged PR #44 — plan-gpu-pipeline.md (only available in the main repo) |
+| **GP3** | GLSL effect runner + `glsl_*` palette (`GlslShader`) — plan-gpu-pipeline.md (only available in the main repo) · PR #49 |
+| **GP3.2** | Tier 2 GLSL effects (`hue_shift`, `threshold`, `vignette`, `sharpen`, `color_tint`) — core #59 — plan-gpu-pipeline.md (only available in the main repo) |
+| **GP4** | External folder shader packs — runtime load, exe + preferences search paths, palette expand — argus-effect-format.md (only available in the main repo) · modular #50, core #61 + #62 |
+| **JXS** | Max JXS → GP4 import — **150/150** runtime-verified, **paused** (good enough) — plan-jxs-import.md (only available in the main repo) |
+| **GP5** | Local CI — `scripts/ci-local.sh` (modular smokes + core GLSL tests) — ci-local.md (only available in the main repo) · modular #50, core #60 |
 | **Perf** | Media-graph UI fixes (palette cache, GLES/preview throttle); Release build docs; `ARGUS_PROFILE_TICK` profiler — README, AGENTS.md |
 
 ---
@@ -85,11 +85,11 @@
 
 | # | Track | Item | Status | Doc |
 |---|-------|------|--------|-----|
-| 15 | **GPU pipeline** | GP4 follow-ups — `color_rgb` / bundle zip | **(soon)** | [plan-gpu-pipeline.md](plan-gpu-pipeline.md) · [plan-color-parameters.md](plan-color-parameters.md) |
-| 17 | **Color parameters** | `color_rgb` / `color_rgba`, auto-converters, optional picker (Node tab) | Not started | [plan-color-parameters.md](plan-color-parameters.md) |
-| 18 | **Parameter widgets** | Widget registry; CodeBox `vec2` / `enum` / `int`/`float`; preview viewers — [plan-parameter-widgets.md](plan-parameter-widgets.md) | Not started | [plan-parameter-widgets.md](plan-parameter-widgets.md) |
-| 16 | **Parameters** | `int`, `vec2`, `vec3`, `vec4` — core types + UI widgets | **(done)** | [plan-parameter-types.md](plan-parameter-types.md) |
-| 11 | **LT polish** | `topology_changed` in SignalBridge; fatal Restart graph | Not started | [plan-live-topology.md](plan-live-topology.md) LT-UI-4 |
+| 15 | **GPU pipeline** | GP4 follow-ups — `color_rgb` / bundle zip | **(soon)** | plan-gpu-pipeline.md (only available in the main repo) · plan-color-parameters.md (only available in the main repo) |
+| 17 | **Color parameters** | `color_rgb` / `color_rgba`, auto-converters, optional picker (Node tab) | Not started | plan-color-parameters.md (only available in the main repo) |
+| 18 | **Parameter widgets** | Widget registry; CodeBox `vec2` / `enum` / `int`/`float`; preview viewers — plan-parameter-widgets.md (only available in the main repo) | Not started | plan-parameter-widgets.md (only available in the main repo) |
+| 16 | **Parameters** | `int`, `vec2`, `vec3`, `vec4` — core types + UI widgets | **(done)** | plan-parameter-types.md (only available in the main repo) |
+| 11 | **LT polish** | `topology_changed` in SignalBridge; fatal Restart graph | Not started | plan-live-topology.md (only available in the main repo) LT-UI-4 |
 | 14 | — | Timeline / automation | Not started | Bundle `timelines/` |
 
 ---
@@ -98,8 +98,8 @@
 
 | Item | Rationale |
 |------|-----------|
-| `⌘⇧V` paste replace | Design before implement — [next_on_UX-C.md](next_on_UX-C.md) |
-| Integrated Lua IDE | External editor + file watch — [plan-codebox-ux.md](plan-codebox-ux.md) |
+| `⌘⇧V` paste replace | Design before implement — next_on_UX-C.md (only available in the main repo) |
+| Integrated Lua IDE | External editor + file watch — plan-codebox-ux.md (only available in the main repo) |
 | imgui-node-editor migration | Custom canvas sufficient |
 | Multi-window / multi-graph | Single document v1 |
 | Collaboration / cloud | Out of scope |

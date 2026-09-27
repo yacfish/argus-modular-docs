@@ -28,7 +28,7 @@ On **macOS**, chords use **⌘ (Command)**. On **Windows/Linux**, the same actio
 | Open recent ▸ | — *(hover submenu)* | — |
 | Open template ▸ | — *(hover submenu)* | — |
 
-New/open/reload prompt to save when the document is dirty. See [plan-app-preferences.md](plan-app-preferences.md).
+New/open/reload prompt to save when the document is dirty. See plan-app-preferences.md (only available in the main repo).
 
 ---
 
@@ -48,7 +48,7 @@ New/open/reload prompt to save when the document is dirty. See [plan-app-prefere
 |--------|----------|
 | Cycle tabs (Monitor → Node → Presets → hidden) | `Tab` |
 
-Debug settings move to **Argus → Preferences** (side Debug tab removed — [plan-app-preferences.md](plan-app-preferences.md)).
+Debug settings move to **Argus → Preferences** (side Debug tab removed — plan-app-preferences.md (only available in the main repo)).
 
 ---
 

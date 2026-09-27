@@ -28,16 +28,16 @@ Node graph with live OpenCV video player, grayscale processing, and dual `gl_win
 | [docs/roadmap.md](docs/roadmap.md) | What to build next |
 | [docs/architecture.md](docs/architecture.md) | System map — **(done)** / **(soon)** / **(deferred)** |
 | [docs/keyboard-shortcuts.md](docs/keyboard-shortcuts.md) | Keyboard cheat sheet |
-| [docs/plan-live-topology.md](docs/plan-live-topology.md) | Live topology — shipped + remaining polish |
-| [docs/plan-boundaries.md](docs/plan-boundaries.md) | SubgraphNode + CodeBox — B1–B5 done |
-| [docs/plan-codebox-ux.md](docs/plan-codebox-ux.md) | CodeBox authoring spec (B4 — shipped) |
-| [docs/codebox-lua-api.md](docs/codebox-lua-api.md) | CodeBox Lua API |
-| [docs/plan-app-preferences.md](docs/plan-app-preferences.md) | Argus menu, prefs, File extensions |
-| [docs/plan-graph-canvas-split.md](docs/plan-graph-canvas-split.md) | Canvas module split (shipped) |
-| [docs/plan-gpu-pipeline.md](docs/plan-gpu-pipeline.md) | GPU path, `gl_viewer`, GLSL lib, external packs |
-| [docs/argus-effect-format.md](docs/argus-effect-format.md) | External folder shader pack format (GP4) |
-| [docs/ci-local.md](docs/ci-local.md) | Local smoke CI (`scripts/ci-local.sh`) |
-| [docs/plan_initial.md](docs/plan_initial.md) | Bootstrap history (U1–U5) |
+| docs/plan-live-topology.md (only available in the main repo) | Live topology — shipped + remaining polish |
+| docs/plan-boundaries.md (only available in the main repo) | SubgraphNode + CodeBox — B1–B5 done |
+| docs/plan-codebox-ux.md (only available in the main repo) | CodeBox authoring spec (B4 — shipped) |
+| docs/codebox-lua-api.md (only available in the main repo) | CodeBox Lua API |
+| docs/plan-app-preferences.md (only available in the main repo) | Argus menu, prefs, File extensions |
+| docs/plan-graph-canvas-split.md (only available in the main repo) | Canvas module split (shipped) |
+| docs/plan-gpu-pipeline.md (only available in the main repo) | GPU path, `gl_viewer`, GLSL lib, external packs |
+| docs/argus-effect-format.md (only available in the main repo) | External folder shader pack format (GP4) |
+| docs/ci-local.md (only available in the main repo) | Local smoke CI (`scripts/ci-local.sh`) |
+| docs/plan_initial.md (only available in the main repo) | Bootstrap history (U1–U5) |
 
 ---
 
@@ -65,7 +65,7 @@ cmake -S . -B build \
 cmake --build build -j
 ```
 
-**When argus-core ships a fix you need:** bump `ARGUS_CORE_REF` in this repo in the same UI PR (or immediately after core merges). Cursor agents are instructed to do this without being asked — see [AGENTS.md](AGENTS.md).
+**When argus-core ships a fix you need:** bump `ARGUS_CORE_REF` in this repo in the same UI PR (or immediately after core merges). Cursor agents are instructed to do this without being asked — see AGENTS.md (only available in the main repo).
 
 ```bash
 ./scripts/bump_argus_core_ref.sh -ud -m "short note" -cp   # merged on main: bump, docs, commit, push
@@ -102,7 +102,7 @@ Interactive build flags (window nodes, OpenCV HighGUI/videoio) match a desktop a
 ./scripts/ci-local.sh
 ```
 
-See [docs/ci-local.md](docs/ci-local.md).
+See docs/ci-local.md (only available in the main repo).
 
 ### Tick profiler (opt-in)
 
