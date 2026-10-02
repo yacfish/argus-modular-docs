@@ -20,6 +20,21 @@ Core owns graph logic, nodes, and the executor. This repo is **UI only** (Dear I
 
 Node graph with live OpenCV video player, grayscale processing, and dual `gl_window` previews.
 
+## Depth, Kinect, and YOLO
+
+These nodes are in the palette on current `main` (core pin `0bf933d`):
+
+| Node | Palette name | What it does |
+|------|----------------|--------------|
+| `KinectV1Source` | `k1_source` | Xbox 360 colour and depth. An empty `serial` claims a free camera and is filled in after the first open. Saving the bundle keeps that binding. The field is a text box in the Node tab. |
+| `KinectV2Source` | `k2_source` | Same colour and depth ports, synthetic backend. |
+| `DepthToPointCloud` | `depth_to_cloud` | `depth.u16` to an organized `pointcloud.xyz`. |
+| `DepthFilePlayer` | `depth_player` | Plays a recorded folder: colour images, 16-bit depth PNGs in millimetres, `intrinsics.json`, `timestamps.txt`. |
+| `DepthRecorder` | `depth_recorder` | Writes that same folder from a colour and depth pair. |
+| `YoloDetector` | `yolo` | ONNX Runtime detection, segmentation, or pose (`task`). Needs `-DARGUS_ENABLE_ONNXRUNTIME=ON` in the core build. Segmentation masks travel on `detection.list` as COCO-style RLE. |
+
+`ML/YoloCamera` and the Depth templates under `templates/` are the bundled examples. The longer plan is docs/dev-docs/plan-new-modules.md (only available in the main repo).
+
 
 **Docs**
 
@@ -37,6 +52,7 @@ Node graph with live OpenCV video player, grayscale processing, and dual `gl_win
 | docs/plan-gpu-pipeline.md (only available in the main repo) | GPU path, `gl_viewer`, GLSL lib, external packs |
 | docs/argus-effect-format.md (only available in the main repo) | External folder shader pack format (GP4) |
 | docs/ci-local.md (only available in the main repo) | Local smoke CI (`scripts/ci-local.sh`) |
+| docs/plan-new-modules.md (only available in the main repo) | Depth, Kinect, YOLO, and the modules still to build |
 | docs/plan_initial.md (only available in the main repo) | Bootstrap history (U1–U5) |
 
 ---
@@ -45,7 +61,7 @@ Node graph with live OpenCV video player, grayscale processing, and dual `gl_win
 
 - CMake 3.25+, Ninja or Make, C++20 compiler
 - OpenCV (same path as your argus-core build)
-- argus-core — pinned in `cmake/resolve_argus_core.cmake` (`ARGUS_CORE_REF` = `f9ac20a…`, external shader pack discovery #62)
+- argus-core — pinned in `cmake/resolve_argus_core.cmake` (`ARGUS_CORE_REF` = `0bf933d…`, depth file nodes and Kinect v1 serial binding, core #81)
 
 CMake resolves core in this order:
 
