@@ -75,7 +75,7 @@ Debug settings move to **Argus → Preferences** (side Debug tab removed — pla
 | Zoom | Scroll wheel | same |
 | Toggle port tooltips | ⌘⇧T | Ctrl+Shift+T |
 
-Port tooltips also toggle from **Mode → Port tooltips**. They stay available when edit mode is off. The label is hidden while dragging a wire, and when the canvas zoom is below 0.45.
+Port tooltips also toggle from **Mode → Port tooltips**. Inlet and outlet hover, clicks, and tooltips run only while edit mode is on. The label is hidden while dragging a wire, and when the canvas zoom is below 0.45.
 
 ---
 
