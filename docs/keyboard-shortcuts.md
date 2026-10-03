@@ -73,6 +73,9 @@ Debug settings move to **Argus → Preferences** (side Debug tab removed — pla
 | Toggle node in selection | ⌘+click or Shift+click node | Ctrl+click or Shift+click |
 | Pan | Middle-mouse drag | same |
 | Zoom | Scroll wheel | same |
+| Toggle port tooltips | ⌘⇧T | Ctrl+Shift+T |
+
+Port tooltips also toggle from **Mode → Port tooltips**. They stay available when edit mode is off. The label is hidden while dragging a wire, and when the canvas zoom is below 0.45.
 
 ---
 

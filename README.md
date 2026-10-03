@@ -22,7 +22,7 @@ Node graph with live OpenCV video player, grayscale processing, and dual `gl_win
 
 ## Depth, Kinect, and ML
 
-These nodes are in the palette on current `main` (core pin `24038e9`):
+These nodes are in the palette on current `main` (core pin `d9090ac`):
 
 | Node | Palette name | What it does |
 |------|----------------|--------------|
@@ -63,7 +63,7 @@ These nodes are in the palette on current `main` (core pin `24038e9`):
 
 - CMake 3.25+, Ninja or Make, C++20 compiler
 - OpenCV (same path as your argus-core build)
-- argus-core — pinned in `cmake/resolve_argus_core.cmake` (`ARGUS_CORE_REF` = `24038e9…`, ML `process_ms` preview, core #85)
+- argus-core — pinned in `cmake/resolve_argus_core.cmake` (`ARGUS_CORE_REF` = `d9090ac…`, port descriptions, core #86)
 
 CMake resolves core in this order:
 
