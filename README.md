@@ -22,15 +22,15 @@ Node graph with live OpenCV video player, grayscale processing, and dual `gl_win
 
 ## Depth, Kinect, and ML
 
-These nodes are in the palette on current `main` (core pin `d9090ac`):
+These nodes are in the palette on current `main` (core pin `c7aa6da`):
 
 | Node | Palette name | What it does |
 |------|----------------|--------------|
 | `KinectV1Source` | `k1_source` | Xbox 360 colour and depth. An empty `serial` claims a free camera and is filled in after the first open. Saving the bundle keeps that binding. The field is a text box in the Node tab. `fps` is a slider (0 keeps the camera rate) and the node shows a measured fps preview, like the other inputs. |
 | `KinectV2Source` | `k2_source` | Same colour, depth, fps slider, and fps preview. Synthetic backend. |
 | `DepthToPointCloud` | `depth_to_cloud` | `depth.u16` to an organized `pointcloud.xyz`. |
-| `DepthFilePlayer` | `depth_player` | Plays a recorded folder: colour images, 16-bit depth PNGs in millimetres, `intrinsics.json`, `timestamps.txt`. |
-| `DepthRecorder` | `depth_recorder` | Writes that same folder from a colour and depth pair. |
+| `DepthFilePlayer` | `RGBD_play` | Plays a recorded folder: colour images, 16-bit depth PNGs in millimetres, `intrinsics.json`, `timestamps.txt`. |
+| `DepthRecorder` | `RGBD_record` | Writes that same folder from a colour and depth pair. |
 | `YoloDetector` | `yolo` | ONNX Runtime detection, segmentation, or pose (`task`). Needs `-DARGUS_ENABLE_ONNXRUNTIME=ON` in the core build. Segmentation masks travel on `detection.list` as COCO-style RLE. The timing preview is `process_ms`, the job duration, not a frame rate. |
 | `MediaPipePose` | `pose` | BlazePose lite. Set `model_dir` to a folder with `pose_detection.onnx` and `pose_landmarks_detector_lite.onnx` (shipped in argus-core under `models/mediapipe`). Colour in, `skeleton.2d`, `skeleton.3d`, and an overlay preview out. The timing preview is `process_ms`. |
 | `SkeletonOverlay` | `skeleton` | Draws a `skeleton.2d` pose onto a colour frame. It does not run a model. |
@@ -63,7 +63,7 @@ These nodes are in the palette on current `main` (core pin `d9090ac`):
 
 - CMake 3.25+, Ninja or Make, C++20 compiler
 - OpenCV (same path as your argus-core build)
-- argus-core — pinned in `cmake/resolve_argus_core.cmake` (`ARGUS_CORE_REF` = `d9090ac…`, port descriptions, core #86)
+- argus-core — pinned in `cmake/resolve_argus_core.cmake` (`ARGUS_CORE_REF` = `c7aa6da…`, RGBD_play and RGBD_record, core #87)
 
 CMake resolves core in this order:
 

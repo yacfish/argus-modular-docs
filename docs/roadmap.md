@@ -1,11 +1,11 @@
 # Roadmap — argus-modular
 
-**Updated**: July 2026  
+**Updated**: October 2026  
 **Purpose**: Single planning doc for the UI repo. System map: [architecture.md](architecture.md).
 
-**Engine:** [argus-core](https://github.com/yacfish/argus-core) — pin `23559df…` (`ARGUS_CORE_REF`, J4.3 spiderweb/crosstile)  
+**Engine:** [argus-core](https://github.com/yacfish/argus-core) — pin `c7aa6da…` (`ARGUS_CORE_REF`, RGBD_play and RGBD_record, core #87)  
 **Bootstrap history:** plan_initial.md (only available in the main repo)  
-**Feature tracks:** plan-boundaries.md (only available in the main repo) · plan-asset-ref.md (only available in the main repo) · plan-gpu-pipeline.md (only available in the main repo) · plan-parameter-types.md (only available in the main repo) · plan-parameter-widgets.md (only available in the main repo) · plan-color-parameters.md (only available in the main repo) · plan-jxs-import.md (only available in the main repo) · plan-app-preferences.md (only available in the main repo) · plan-graph-canvas-split.md (only available in the main repo)  
+**Feature tracks:** plan-new-modules.md (only available in the main repo) · plan-boundaries.md (only available in the main repo) · plan-asset-ref.md (only available in the main repo) · plan-gpu-pipeline.md (only available in the main repo) · plan-parameter-types.md (only available in the main repo) · plan-parameter-widgets.md (only available in the main repo) · plan-color-parameters.md (only available in the main repo) · plan-jxs-import.md (only available in the main repo) · plan-app-preferences.md (only available in the main repo) · plan-graph-canvas-split.md (only available in the main repo) · plan-port-tooltips.md (only available in the main repo)  
 **UX polish history:** `next_on_UX-*.md` (UX-A–D, merged)  
 **Live topology:** plan-live-topology.md (only available in the main repo) — core shipped; UI polish remains
 
@@ -50,7 +50,7 @@
 |------|--------|
 | **P0** | CPU vision, `SubgraphNode`, `CodeBox` — CPU loops **(done)**; Boundaries B1–B5 **(done)** plan-boundaries.md (only available in the main repo) |
 | **P1** | GLES upload/shader/window — catalog **(done)**; **`glsl_*` palette + GP3/GP3.2 + external packs (GP4 runtime)** **(done)** plan-gpu-pipeline.md (only available in the main repo) |
-| **P2** | BlobDetector, Sketch2D, recorder, … — **(deferred)** |
+| **P2** | BlobDetector, CentroidFilter, Sketch2D, movie recorder — in the palette **(done)** |
 | **P3** | Vulkan, compute — **(deferred)** / build-gated; Inlet/Outlet subgraph-only |
 
 ---
@@ -78,6 +78,9 @@
 | **JXS** | Max JXS → GP4 import — **150/150** runtime-verified, **paused** (good enough) — plan-jxs-import.md (only available in the main repo) |
 | **GP5** | Local CI — `scripts/ci-local.sh` (modular smokes + core GLSL tests) — ci-local.md (only available in the main repo) · modular #50, core #60 |
 | **Perf** | Media-graph UI fixes (palette cache, GLES/preview throttle); Release build docs; `ARGUS_PROFILE_TICK` profiler — README, AGENTS.md |
+| **Depth / Kinect** | `KinectV1Source` (serial latch, fps cap), `KinectV2Source` synthetic, `DepthToPointCloud`, `DepthFilePlayer`, `DepthRecorder` — plan-new-modules.md (only available in the main repo) M0 |
+| **ML** | `YoloDetector` (detect / segment / pose, CPU + CoreML), `MediaPipePose` lite ONNX, `SkeletonOverlay`. Timing preview is `process_ms` — plan-new-modules.md (only available in the main repo) M1–M2 |
+| **Port tooltips** | Hover labels in edit mode — plan-port-tooltips.md (only available in the main repo) · modular #77, #78 |
 
 ---
 
@@ -85,6 +88,7 @@
 
 | # | Track | Item | Status | Doc |
 |---|-------|------|--------|-----|
+| 19 | **ML / depth** | M2 close-out: metric pose demo + CodeBox example. Then CPU RGB-D SLAM on recorded folders. TensorRT and gsplat training are off this Mac | Next | plan-new-modules.md (only available in the main repo) |
 | 15 | **GPU pipeline** | GP4 follow-ups — `color_rgb` / bundle zip | **(soon)** | plan-gpu-pipeline.md (only available in the main repo) · plan-color-parameters.md (only available in the main repo) |
 | 17 | **Color parameters** | `color_rgb` / `color_rgba`, auto-converters, optional picker (Node tab) | Not started | plan-color-parameters.md (only available in the main repo) |
 | 18 | **Parameter widgets** | Widget registry; CodeBox `vec2` / `enum` / `int`/`float`; preview viewers — plan-parameter-widgets.md (only available in the main repo) | Not started | plan-parameter-widgets.md (only available in the main repo) |
