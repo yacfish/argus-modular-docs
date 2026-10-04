@@ -3,7 +3,7 @@
 **Updated**: October 2026  
 **Purpose**: Single planning doc for the UI repo. System map: [architecture.md](architecture.md).
 
-**Engine:** [argus-core](https://github.com/yacfish/argus-core) — pin `1db821e…` (`ARGUS_CORE_REF`, stale-node placeholders, core #88)  
+**Engine:** [argus-core](https://github.com/yacfish/argus-core) — pin `ba50fdc…` (`ARGUS_CORE_REF`, pose metric previews, core #89)  
 **Bootstrap history:** plan_initial.md (only available in the main repo)  
 **Feature tracks:** plan-new-modules.md (only available in the main repo) · plan-boundaries.md (only available in the main repo) · plan-asset-ref.md (only available in the main repo) · plan-gpu-pipeline.md (only available in the main repo) · plan-parameter-types.md (only available in the main repo) · plan-parameter-widgets.md (only available in the main repo) · plan-color-parameters.md (only available in the main repo) · plan-jxs-import.md (only available in the main repo) · plan-app-preferences.md (only available in the main repo) · plan-graph-canvas-split.md (only available in the main repo) · plan-port-tooltips.md (only available in the main repo)  
 **UX polish history:** `next_on_UX-*.md` (UX-A–D, merged)  
