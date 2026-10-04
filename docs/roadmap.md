@@ -3,7 +3,7 @@
 **Updated**: October 2026  
 **Purpose**: Single planning doc for the UI repo. System map: [architecture.md](architecture.md).
 
-**Engine:** [argus-core](https://github.com/yacfish/argus-core) — pin `c7aa6da…` (`ARGUS_CORE_REF`, RGBD_play and RGBD_record, core #87)  
+**Engine:** [argus-core](https://github.com/yacfish/argus-core) — pin `1db821e…` (`ARGUS_CORE_REF`, stale-node placeholders, core #88)  
 **Bootstrap history:** plan_initial.md (only available in the main repo)  
 **Feature tracks:** plan-new-modules.md (only available in the main repo) · plan-boundaries.md (only available in the main repo) · plan-asset-ref.md (only available in the main repo) · plan-gpu-pipeline.md (only available in the main repo) · plan-parameter-types.md (only available in the main repo) · plan-parameter-widgets.md (only available in the main repo) · plan-color-parameters.md (only available in the main repo) · plan-jxs-import.md (only available in the main repo) · plan-app-preferences.md (only available in the main repo) · plan-graph-canvas-split.md (only available in the main repo) · plan-port-tooltips.md (only available in the main repo)  
 **UX polish history:** `next_on_UX-*.md` (UX-A–D, merged)  
@@ -79,7 +79,7 @@
 | **GP5** | Local CI — `scripts/ci-local.sh` (modular smokes + core GLSL tests) — ci-local.md (only available in the main repo) · modular #50, core #60 |
 | **Perf** | Media-graph UI fixes (palette cache, GLES/preview throttle); Release build docs; `ARGUS_PROFILE_TICK` profiler — README, AGENTS.md |
 | **Depth / Kinect** | `KinectV1Source` (serial latch, fps cap), `KinectV2Source` synthetic, `DepthToPointCloud`, `DepthFilePlayer`, `DepthRecorder` — plan-new-modules.md (only available in the main repo) M0 |
-| **ML** | `YoloDetector` (detect / segment / pose, CPU + CoreML), `MediaPipePose` lite ONNX, `SkeletonOverlay`. Timing preview is `process_ms` — plan-new-modules.md (only available in the main repo) M1–M2 |
+| **ML** | `YoloDetector` (detect / segment / pose, CPU + CoreML), `MediaPipePose` lite ONNX. The pose overlay is `out3` on that node. Timing preview is `process_ms` — plan-new-modules.md (only available in the main repo) M1–M2 |
 | **Port tooltips** | Hover labels in edit mode — plan-port-tooltips.md (only available in the main repo) · modular #77, #78 |
 
 ---

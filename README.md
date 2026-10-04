@@ -22,7 +22,7 @@ Node graph with live OpenCV video player, grayscale processing, and dual `gl_win
 
 ## Depth, Kinect, and ML
 
-These nodes are in the palette on current `main` (core pin `c7aa6da`):
+These nodes are in the palette on current `main` (core pin `1db821e`):
 
 | Node | Palette name | What it does |
 |------|----------------|--------------|
@@ -32,8 +32,7 @@ These nodes are in the palette on current `main` (core pin `c7aa6da`):
 | `DepthFilePlayer` | `RGBD_play` | Plays a recorded folder: colour images, 16-bit depth PNGs in millimetres, `intrinsics.json`, `timestamps.txt`. |
 | `DepthRecorder` | `RGBD_record` | Writes that same folder from a colour and depth pair. |
 | `YoloDetector` | `yolo` | ONNX Runtime detection, segmentation, or pose (`task`). Needs `-DARGUS_ENABLE_ONNXRUNTIME=ON` in the core build. Segmentation masks travel on `detection.list` as COCO-style RLE. The timing preview is `process_ms`, the job duration, not a frame rate. |
-| `MediaPipePose` | `pose` | BlazePose lite. Set `model_dir` to a folder with `pose_detection.onnx` and `pose_landmarks_detector_lite.onnx` (shipped in argus-core under `models/mediapipe`). Colour in, `skeleton.2d`, `skeleton.3d`, and an overlay preview out. The timing preview is `process_ms`. |
-| `SkeletonOverlay` | `skeleton` | Draws a `skeleton.2d` pose onto a colour frame. It does not run a model. |
+| `MediaPipePose` | `MediaPipePose` | BlazePose lite. Set `model_dir` to a folder with `pose_detection.onnx` and `pose_landmarks_detector_lite.onnx` (shipped in argus-core under `models/mediapipe`). Colour in, `skeleton.2d`, `skeleton.3d`, and an overlay preview on `out3`. The timing preview is `process_ms`. |
 
 `ML/YoloCamera`, `ML/PoseCamera`, and the Depth templates under `templates/` are the bundled examples. The longer plan is docs/dev-docs/plan-new-modules.md (only available in the main repo).
 
@@ -63,7 +62,7 @@ These nodes are in the palette on current `main` (core pin `c7aa6da`):
 
 - CMake 3.25+, Ninja or Make, C++20 compiler
 - OpenCV (same path as your argus-core build)
-- argus-core — pinned in `cmake/resolve_argus_core.cmake` (`ARGUS_CORE_REF` = `c7aa6da…`, RGBD_play and RGBD_record, core #87)
+- argus-core — pinned in `cmake/resolve_argus_core.cmake` (`ARGUS_CORE_REF` = `1db821e…`, stale-node placeholders, core #88)
 
 CMake resolves core in this order:
 
