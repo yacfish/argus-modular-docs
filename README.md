@@ -32,7 +32,7 @@ These nodes are in the palette on current `main` (core pin `ba50fdc`):
 | `DepthFilePlayer` | `RGBD_play` | Plays a recorded folder: colour images, 16-bit depth PNGs in millimetres, `intrinsics.json`, `timestamps.txt`. |
 | `DepthRecorder` | `RGBD_record` | Writes that same folder from a colour and depth pair. |
 | `YoloDetector` | `yolo` | ONNX Runtime detection, segmentation, or pose (`task`). Needs `-DARGUS_ENABLE_ONNXRUNTIME=ON` in the core build. Segmentation masks travel on `detection.list` as COCO-style RLE. The timing preview is `process_ms`, the job duration, not a frame rate. |
-| `MediaPipePose` | `MediaPipePose` | BlazePose lite. Set `model_dir` to a folder with `pose_detection.onnx` and `pose_landmarks_detector_lite.onnx` (shipped in argus-core under `models/mediapipe`). Colour in, `skeleton.2d`, `skeleton.3d`, and an overlay preview on `out3`. The timing preview is `process_ms`. |
+| `MediaPipePose` | `MediaPipePose` | BlazePose lite. Set `model_dir` to a folder with `pose_detection.onnx` and `pose_landmarks_detector_lite.onnx` (shipped in argus-core under `models/mediapipe`). Colour in, `skeleton.2d`, `skeleton.3d`, and an overlay preview on `out3`. Inner previews: `process_ms` (job duration), `valid_joints`, and `hip_z_m` (mean Z of the hips on pose 0, blank unless both are valid). |
 
 `ML/YoloCamera`, `ML/PoseCamera`, and the Depth templates under `templates/` are the bundled examples. The longer plan is docs/dev-docs/plan-new-modules.md (only available in the main repo).
 

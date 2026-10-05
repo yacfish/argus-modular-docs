@@ -79,8 +79,9 @@
 | **GP5** | Local CI — `scripts/ci-local.sh` (modular smokes + core GLSL tests) — ci-local.md (only available in the main repo) · modular #50, core #60 |
 | **Perf** | Media-graph UI fixes (palette cache, GLES/preview throttle); Release build docs; `ARGUS_PROFILE_TICK` profiler — README, AGENTS.md |
 | **Depth / Kinect** | `KinectV1Source` (serial latch, fps cap), `KinectV2Source` synthetic, `DepthToPointCloud`, `DepthFilePlayer`, `DepthRecorder` — plan-new-modules.md (only available in the main repo) M0 |
-| **ML** | `YoloDetector` (detect / segment / pose, CPU + CoreML), `MediaPipePose` lite ONNX. The pose overlay is `out3` on that node. Timing preview is `process_ms` — plan-new-modules.md (only available in the main repo) M1–M2 |
+| **ML** | `YoloDetector` (detect / segment / pose, CPU + CoreML), `MediaPipePose` lite ONNX. The pose overlay is `out3`. Inner previews are `process_ms`, `valid_joints`, and `hip_z_m` (core #89, modular #81). The Kinect reading is in plan-new-modules.md (only available in the main repo) M2 |
 | **Port tooltips** | Hover labels in edit mode — plan-port-tooltips.md (only available in the main repo) · modular #77, #78 |
+| **Stale nodes** | A card whose type is missing, or whose saved name is not the current default, opens as a pale orange port-less placeholder and its wires are dropped — core #88, modular #80 |
 
 ---
 
@@ -88,7 +89,8 @@
 
 | # | Track | Item | Status | Doc |
 |---|-------|------|--------|-----|
-| 19 | **ML / depth** | M2 close-out: metric pose demo + CodeBox example. Then CPU RGB-D SLAM on recorded folders. TensorRT and gsplat training are off this Mac | Next | plan-new-modules.md (only available in the main repo) |
+| 19 | **ML / depth** | Metre check is good enough (`hip_z_m` 1.75 versus a 2.0 m tape, put down to the test setup). `pose.se3` and CPU SLAM wait. TensorRT and gsplat training stay off this Mac | Later | plan-new-modules.md (only available in the main repo) |
+| 20 | **GL world** | `gl_world` plus draw nodes (`gl_plane`, `gl_pointcloud`, `gl_light_source`) on the existing GLES path. No scene-graph library | Next | plan-gpu-pipeline.md (only available in the main repo) |
 | 15 | **GPU pipeline** | GP4 follow-ups — `color_rgb` / bundle zip | **(soon)** | plan-gpu-pipeline.md (only available in the main repo) · plan-color-parameters.md (only available in the main repo) |
 | 17 | **Color parameters** | `color_rgb` / `color_rgba`, auto-converters, optional picker (Node tab) | Not started | plan-color-parameters.md (only available in the main repo) |
 | 18 | **Parameter widgets** | Widget registry; CodeBox `vec2` / `enum` / `int`/`float`; preview viewers — plan-parameter-widgets.md (only available in the main repo) | Not started | plan-parameter-widgets.md (only available in the main repo) |
